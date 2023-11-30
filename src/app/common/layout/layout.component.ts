@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, OnDestroy, AfterViewInit, inject, effect, AfterViewChecked } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -6,8 +6,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { Subscription } from 'rxjs';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { AuthService } from '../../service/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-layout',
@@ -15,6 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrls: ['./layout.component.scss'],
   standalone: true,
   imports: [
+    CommonModule,
     RouterModule,
     MatToolbarModule,
     MatIconModule,
@@ -24,7 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule,
   ],
 })
-export class LayoutComponent {
+export class LayoutComponent implements OnDestroy, AfterViewInit {
   private _mobileQueryListener: () => void;
   mobileQuery: MediaQueryList;
   showSpinner: boolean = false;
@@ -32,6 +35,12 @@ export class LayoutComponent {
   isAdmin: boolean = false;
 
   private autoLogoutSubscription: Subscription = new Subscription();
+
+  private router = inject(Router);
+
+  private authService = inject(AuthService);
+
+  user = this.authService.user;
 
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
@@ -43,8 +52,8 @@ export class LayoutComponent {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
-  ngOnInit(): void {
-
+  onLogout(): void {
+    this.authService.logout();
   }
 
   ngOnDestroy(): void {

@@ -1,5 +1,4 @@
 table {
-  width: 100%;
   font-size: 1.2em;
 
   p[cdkDrag] {
@@ -22,12 +21,4 @@ table {
     background-color: #dc3545;
     color: #ffffff;
   }
-}
-
-.table__button--settings {
-  margin: 1em;
-}
-
-.table--dialog {
-  padding: 2em;
 }

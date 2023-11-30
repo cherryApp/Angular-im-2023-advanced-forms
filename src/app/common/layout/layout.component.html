@@ -60,41 +60,43 @@
 
       <mat-nav-list>
         <!-- <h3 mat-subheader>Home</h3> -->
+        @if (!!user()) {
 
-        <a mat-list-item [routerLink]="['/dashboard']" routerLinkActive="active">
-          <mat-icon mat-list-icon>
-            dashboard
-          </mat-icon>
-          <p mat-line> Dashboard </p>
-        </a>
+          <a mat-list-item [routerLink]="['/dashboard']" routerLinkActive="active">
+            <mat-icon mat-list-icon>
+              dashboard
+            </mat-icon>
+            <p mat-line> Dashboard </p>
+          </a>
 
-        <a mat-list-item [routerLink]="['/products']" routerLinkActive="active">
-          <mat-icon mat-list-icon>
-            developer_mode
-          </mat-icon>
-          <p mat-line> Products </p>
-        </a>
-        <a mat-list-item [routerLink]="['/customers']" routerLinkActive="active">
-          <mat-icon mat-list-icon>
-            people
-          </mat-icon>
-          <p mat-line> Customers </p>
-        </a>
+          <a mat-list-item [routerLink]="['/products']" routerLinkActive="active">
+            <mat-icon mat-list-icon>
+              developer_mode
+            </mat-icon>
+            <p mat-line> Products </p>
+          </a>
+          <a mat-list-item [routerLink]="['/customers']" routerLinkActive="active">
+            <mat-icon mat-list-icon>
+              people
+            </mat-icon>
+            <p mat-line> Customers </p>
+          </a>
 
-        <a mat-list-item [routerLink]="['/']">
-          <mat-icon mat-list-icon>person</mat-icon>
-          <p mat-line> Account </p>
-        </a>
+          <a mat-list-item [routerLink]="['/']">
+            <mat-icon mat-list-icon>person</mat-icon>
+            <p mat-line> Account </p>
+          </a>
 
-        <a mat-list-item [routerLink]="['/']">
-          <mat-icon mat-list-icon>logout</mat-icon>
-          <p mat-line> Log out </p>
-        </a>
-
-        <a mat-list-item [routerLink]="['/login']">
-          <mat-icon mat-list-icon>login</mat-icon>
-          <p mat-line> Sign in </p>
-        </a>
+          <a mat-list-item (click)="onLogout()">
+            <mat-icon mat-list-icon>logout</mat-icon>
+            <p mat-line> Log out </p>
+          </a>
+        } @else {
+          <a mat-list-item [routerLink]="['/login']">
+            <mat-icon mat-list-icon>login</mat-icon>
+            <p mat-line> Sign in </p>
+          </a>
+        }
 
         <mat-divider></mat-divider>
 

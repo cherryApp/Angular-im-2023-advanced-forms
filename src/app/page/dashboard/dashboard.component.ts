@@ -2,17 +2,18 @@ import { CdkDragDrop, CdkDropList } from '@angular/cdk/drag-drop';
 import { Component, QueryList, ViewChild, ViewChildren, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { MatInput, MatInputModule } from '@angular/material/input';
 import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { Observable, interval, of, tap } from 'rxjs';
+import { tap } from 'rxjs';
 import { TableSettingsComponent } from '../../common/table-settings/table-settings.component';
 import { User } from '../../model/user';
 import { UserService } from '../../service/user.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,6 +24,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     CommonModule,
     TableSettingsComponent,
     ReactiveFormsModule,
+    FlexLayoutModule,
     MatIconModule,
     MatTableModule,
     MatPaginatorModule,
@@ -70,7 +72,7 @@ export class DashboardComponent {
 
   count$ = this.userService.count$;
 
-  readonly initialColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'address', 'manage'];
+  readonly initialColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'manage'];
 
   displayedColumns: string[] = [...this.initialColumns];
 
