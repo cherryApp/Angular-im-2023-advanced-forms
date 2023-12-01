@@ -1,6 +1,7 @@
 import { Pipe, PipeTransform, inject } from '@angular/core';
-import { Customer } from '../model/customer';
 import { GeoipDataService, IGeoIPData } from '../service/geoip-data.service';
+
+import memo from 'memo-decorator';
 
 // Country calculation
 const calcCountry = (ip_address: string, geoData: IGeoIPData[]): string => {
@@ -45,6 +46,7 @@ export class GeoPipe implements PipeTransform {
 
   geoData: IGeoIPData[] = this.geoIpService.geoData;
 
+  @memo()
   transform(ip: string): string {
     if (!ip) return '';
 

@@ -22,4 +22,9 @@
 
 ## Memoize
 - `src/app/pipe/geo.pipe.ts`
+- `https://github.com/mgechev/memo-decorator`
+- `npm i memo-decorator`
+- Implementing the decorator.
+
+## LoadComponent
 - 
