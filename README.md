@@ -3,10 +3,19 @@
 ## Start
 - `npm run dev`
 
-## Create Interceptor
-- `ng g interceptor interceptor/jwt`
+## The slow app
+- review:
+- `src/main.ts`
+- `src/app/app.config.ts`
+- coding:
+- `src/app/page/customer/customer.component.ts`
 
-## Auth Guard
+## OnPush strategy
+- `src/app/page/customer/customer.component.ts`
+- `changeDetection: ChangeDetectionStrategy.OnPush,`
+- ![strategy](src/assets/strategy.webp)
+
+## Pipes
 - `server/routes.json`
 - `ng g guard guard/auth`
 - `src/app/guard/auth.guard.ts`

@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewInit, Component, OnInit, inject } from '@angular/core';
+import { AfterContentInit, AfterViewInit, ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CustomerStore } from '../../store/CustomerStore';
 import { MatTableModule } from '@angular/material/table';
@@ -26,6 +26,7 @@ import { GeoipDataService, IGeoIPData } from '../../service/geoip-data.service';
   ],
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CustomerComponent implements OnInit {
   store = inject(CustomerStore);
