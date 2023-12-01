@@ -27,4 +27,8 @@
 - Implementing the decorator.
 
 ## LoadComponent
+- `src/app/app.routes.ts`
+- `src/app/page/dashboard/dashboard.component.ts`
+
+## Preloading 1
 - 
