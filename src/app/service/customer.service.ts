@@ -16,7 +16,7 @@ export class CustomerService {
   constructor() { }
 
   getAll(): Observable<Customer[]> {
-    return this.http.get<Customer[]>(this.apiUrl);
+    return this.http.get<Customer[]>(this.apiUrl + '?_limit=100');
   }
 
   get(id: number): Observable<Customer> {

@@ -32,10 +32,10 @@ export class LoginComponent {
   loginError = this.auth.loginError;
 
   loginData: FormGroup = new FormGroup({
-    email: new FormControl('', {
+    email: new FormControl('cf@gmail.com', {
       validators: [Validators.required, Validators.email],
     }),
-    password: new FormControl('', {
+    password: new FormControl('test', {
       validators: [Validators.required],
     }),
   });

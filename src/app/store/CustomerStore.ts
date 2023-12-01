@@ -12,7 +12,9 @@ type CustomerState = {
   error: string;
 };
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class CustomerStore {
 
   customerService = inject(CustomerService);
