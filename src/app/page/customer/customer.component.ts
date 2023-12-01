@@ -10,6 +10,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { RouterModule } from '@angular/router';
 import { Customer } from '../../model/customer';
 import { GeoipDataService, IGeoIPData } from '../../service/geoip-data.service';
+import { GeoPipe } from '../../pipe/geo.pipe';
 
 @Component({
   selector: 'app-customer',
@@ -23,6 +24,7 @@ import { GeoipDataService, IGeoIPData } from '../../service/geoip-data.service';
     MatIconModule,
     MatChipsModule,
     FlexLayoutModule,
+    GeoPipe,
   ],
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.scss',

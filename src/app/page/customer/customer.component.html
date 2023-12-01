@@ -35,7 +35,7 @@
       <!-- County Column -->
       <ng-container matColumnDef="country">
         <th mat-header-cell *matHeaderCellDef> Country </th>
-        <td mat-cell *matCellDef="let element"> {{calcCountry(element)}} </td>
+        <td mat-cell *matCellDef="let element"> {{ element.ip_address | geo }} </td>
       </ng-container>
 
       <!-- Ip address Column -->
