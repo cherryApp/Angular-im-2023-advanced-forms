@@ -1,4 +1,7 @@
-# AngularIm2023SignalsNgrx
+# Angular Optimisation Course
+
+## Start
+- `npm run dev`
 
 ## Create Interceptor
 - `ng g interceptor interceptor/jwt`
