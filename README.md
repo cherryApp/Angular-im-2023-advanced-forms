@@ -31,4 +31,10 @@
 - `src/app/page/dashboard/dashboard.component.ts`
 
 ## Preloading 1
-- 
+- Explain PreloadingStrategy
+- Default: NoPreloading
+- Set: PreloadAllModules
+- `src/app/app.config.ts`
+- `withPreloading(PreloadAllModules),`
+
+

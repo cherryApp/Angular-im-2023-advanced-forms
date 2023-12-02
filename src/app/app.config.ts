@@ -3,7 +3,7 @@ import {
   ApplicationConfig,
   importProvidersFrom,
 } from '@angular/core';
-import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { PreloadAllModules, provideRouter, withComponentInputBinding, withPreloading } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideAnimations } from '@angular/platform-browser/animations';
@@ -24,7 +24,11 @@ export function initGeo(service: GeoipDataService) {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes, withComponentInputBinding()),
+    provideRouter(
+      routes,
+      withComponentInputBinding(),
+      withPreloading(PreloadAllModules),
+    ),
     provideAnimations(),
     provideHttpClient(withInterceptors([jwtInterceptor])),
     importProvidersFrom([FlexLayoutModule]),
