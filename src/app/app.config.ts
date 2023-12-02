@@ -17,6 +17,7 @@ import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { jwtInterceptor } from './interceptor/jwt.interceptor';
 import { GeoipDataService } from './service/geoip-data.service';
+import { FlagBasedPreloadingStrategy } from './service/flag-based.preloading-strategy';
 
 export function initGeo(service: GeoipDataService) {
   return () => service.init();
@@ -27,7 +28,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(
       routes,
       withComponentInputBinding(),
-      withPreloading(PreloadAllModules),
+      withPreloading(FlagBasedPreloadingStrategy),
     ),
     provideAnimations(),
     provideHttpClient(withInterceptors([jwtInterceptor])),

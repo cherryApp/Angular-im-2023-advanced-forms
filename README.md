@@ -37,4 +37,17 @@
 - `src/app/app.config.ts`
 - `withPreloading(PreloadAllModules),`
 
+## Preloading 2
+- `src/app/app.routes.ts`
+- To preload, set: 
+```
+data: {
+  prelodad: true,
+},
+```
+- create: `src/app/service/flag-based.preloading-strategy.ts`
+- `src/app/app.config.ts`
+- `withPreloading(FlagBasedPreloadingStrategy),`
+
+
 

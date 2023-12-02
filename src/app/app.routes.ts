@@ -10,6 +10,9 @@ export const routes: Routes = [
       m => m.DashboardComponent
     ),
     canActivate: [authGuard],
+    data: {
+      preload: true,
+    },
   },
   {
     path: 'dashboard',
@@ -21,6 +24,9 @@ export const routes: Routes = [
       m => m.ProductComponent
     ),
     canActivate: [authGuard],
+    data: {
+      preload: true,
+    },
   },
   {
     path: 'product/edit/:id',
