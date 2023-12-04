@@ -2,11 +2,8 @@ import { Component, Input, OnInit, effect, inject, numberAttribute } from '@angu
 import { CommonModule } from '@angular/common';
 import {
   AbstractControl,
-  FormControl,
-  FormGroup,
   ReactiveFormsModule,
   ValidationErrors,
-  Validators,
 } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,6 +17,8 @@ import { Customer } from '../../model/customer';
 import { Router, RouterModule } from '@angular/router';
 import { CustomerService } from '../../service/customer.service';
 import { Observable, firstValueFrom, map } from 'rxjs';
+import { customerAdd } from '../../form/forms';
+import { FormJsonComponent } from '../../common/form-json/form-json.component';
 
 @Component({
   selector: 'app-customer-add',
@@ -35,6 +34,7 @@ import { Observable, firstValueFrom, map } from 'rxjs';
     MatButtonModule,
     MatCheckboxModule,
     MatSnackBarModule,
+    FormJsonComponent,
   ],
   templateUrl: './customer-add.component.html',
   styleUrl: './customer-add.component.scss',
@@ -57,27 +57,15 @@ export class CustomerAddComponent {
 
   selectError = this.store.error;
 
-  form = new FormGroup({
-    name: new FormControl('', [
-      Validators.required,
-      Validators.pattern('^[a-zA-Z0-9 ]{3,}$'),
-    ]),
-    email: new FormControl('', {
-      validators: [Validators.required, Validators.email],
-      asyncValidators: [this.validateEmail.bind(this)()],
-    }),
-    address: new FormControl('', {
-      validators: [Validators.required],
-    }),
-    ip_address: new FormControl('', {
-      validators: [
-        Validators.required,
-        Validators.pattern(/^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)
-      ],
-    }),
-    active: new FormControl(false),
-    id: new FormControl(0),
-  });
+  formSettings = {...customerAdd, fields: customerAdd.fields.map(field => {
+    if (field.key === 'email') {
+      return {
+        ...field,
+        asyncValidators: [this.validateEmail.bind(this)()],
+      };
+    }
+    return field;
+  })};
 
   constructor() {
     effect(() => {
@@ -89,8 +77,8 @@ export class CustomerAddComponent {
     });
   }
 
-  onAdd(form: FormGroup) {
-    this.store.createItem(form.value);
+  onAdd(customer: Customer) {
+    this.store.createItem(customer);
     this.router.navigate(['/customers']);
   }
 

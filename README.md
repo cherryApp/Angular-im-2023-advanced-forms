@@ -7,6 +7,11 @@
 - [customer-editor.component.ts](src/app/page/customer-editor/customer-editor.component.ts)
 - [customer-editor.component.html](src/app/page/customer-editor/customer-editor.component.html)
 
+## JSON-based forms
+- create: `src/app/form/forms.ts`
+- command: `ng g c common/form-json`
+- [FormJsonComp.](src/app/common/form-json/form-json.component.ts)
+
 ## Async Validation
 - [CustomerService: query](src/app/service/customer.service.ts)
 - [CustomerStore: createItem()](src/app/store/CustomerStore.ts)
