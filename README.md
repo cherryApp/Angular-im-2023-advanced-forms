@@ -20,6 +20,9 @@
 - [CustomersComp: add button, remove country](src/app/page/customer/customer.component.html)
 - [AppRoutes: customer/add](src/app/app.routes.ts)
 
+## Multi-field Validation
+- 
+
 
 
 
