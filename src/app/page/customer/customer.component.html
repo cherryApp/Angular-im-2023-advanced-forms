@@ -1,5 +1,13 @@
 <div fxLayout="column" fxLayoutGap="20px">
 
+  <div fxLayout="row" fxLayoutGap="20px">
+    <div fxFlex="5"></div>
+    <button mat-raised-button color="primary" [routerLink]="['/customer', 'add']">
+      <mat-icon>add</mat-icon>
+      add new customer
+    </button>
+  </div>
+
     <table mat-table [dataSource]="list()" class="mat-elevation-z8">
 
       <!-- ID Column -->
@@ -30,12 +38,6 @@
       <ng-container matColumnDef="ip_address">
         <th mat-header-cell *matHeaderCellDef> IP. </th>
         <td mat-cell *matCellDef="let element"> {{element.ip_address}} </td>
-      </ng-container>
-
-      <!-- County Column -->
-      <ng-container matColumnDef="country">
-        <th mat-header-cell *matHeaderCellDef> Country </th>
-        <td mat-cell *matCellDef="let element"> {{ element.ip_address | geo }} </td>
       </ng-container>
 
       <!-- Ip address Column -->

@@ -45,7 +45,6 @@ export class CustomerComponent implements OnInit {
     'email',
     'address',
     'ip_address',
-    'country',
     'active',
     'manage',
   ];

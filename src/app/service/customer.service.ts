@@ -16,7 +16,7 @@ export class CustomerService {
   constructor() { }
 
   getAll(): Observable<Customer[]> {
-    return this.http.get<Customer[]>(this.apiUrl + '?_limit=100');
+    return this.http.get<Customer[]>(this.apiUrl);
   }
 
   get(id: number): Observable<Customer> {
@@ -33,6 +33,10 @@ export class CustomerService {
 
   remove(customer: Customer): Observable<Customer> {
     return this.http.delete<Customer>(`${this.apiUrl}${customer.id}`);
+  }
+
+  query(query: string): Observable<Customer[]> {
+    return this.http.get<Customer[]>(`${this.apiUrl}?${query}`);
   }
 
 }

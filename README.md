@@ -3,6 +3,21 @@
 ## Start
 - `npm run dev`
 
+## Intro
+- [customer-editor.component.ts](src/app/page/customer-editor/customer-editor.component.ts)
+- [customer-editor.component.html](src/app/page/customer-editor/customer-editor.component.html)
+
+## Async Validation
+- [CustomerService: query](src/app/service/customer.service.ts)
+- [CustomerStore: createItem()](src/app/store/CustomerStore.ts)
+- command: `ng g c page/customer-add`
+- [CustomerAddComp.](src/app/page/customer-add/customer-add.component.ts)
+- [CustomersComp: add button, remove country](src/app/page/customer/customer.component.html)
+- [AppRoutes: customer/add](src/app/app.routes.ts)
+
+
+
+
 ## The slow app
 - review:
 - [main.ts](src/main.ts)
