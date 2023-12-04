@@ -9,25 +9,25 @@
 
 ## Create AuthService
 - command: `ng g service service/auth`
-- [code AuthService](src\app\service\auth.service.ts)
+- [code AuthService](src/app/service/auth.service.ts)
 
 ## Login
 - command: `ng g c page/login`
 - [add LoginComponent](src/app/app.routes.ts)
-- [code LoginComponent](src\app\page\login\login.component.ts)
+- [code LoginComponent](src/app/page/login/login.component.ts)
 
 ## Logout
-- [code LayoutComponent](src\app\common\layout\layout.component.ts)
+- [code LayoutComponent](src/app/common/layout/layout.component.ts)
 ```typescript
 onLogout(): void {
   this.authService.logout();
 }
 ```
-- [show login/logout](src\app\common\layout\layout.component.html)
+- [show login/logout](src/app/common/layout/layout.component.html)
 
 ## Create Interceptor
 - command: `ng g interceptor interceptor/jwt`
-- [code interceptor](src\app\interceptor\jwt.interceptor.ts)
+- [code interceptor](src/app/interceptor/jwt.interceptor.ts)
   
 ## Auth Guard
 - [routes.json](server/routes.json)
