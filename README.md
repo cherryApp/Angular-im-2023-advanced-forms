@@ -5,40 +5,44 @@
 
 ## The slow app
 - review:
-- `src/main.ts`
-- `src/app/app.config.ts`
+- [main.ts](src/main.ts)
+- [app.config.ts](src/app/app.config.ts)
 - coding:
-- `src/app/page/customer/customer.component.ts`
+- [customer.component.ts](src/app/page/customer/customer.component.ts)
 
 ## OnPush strategy
-- `src/app/page/customer/customer.component.ts`
-- `changeDetection: ChangeDetectionStrategy.OnPush,`
+- [customer.component.ts](src/app/page/customer/customer.component.ts)
+```typescript
+changeDetection: ChangeDetectionStrategy.OnPush,
+```
 - ![strategy](src/assets/strategy.webp)
 
 ## Pipes
-- `ng g pipe pipe/geo`
-- `src/app/pipe/geo.pipe.ts`
-- `src/app/page/customer/customer.component.html` using pipe
+- command: `ng g pipe pipe/geo`
+- [geo.pipe.ts](src/app/pipe/geo.pipe.ts)
+- [customer.component.html: using pipe](src/app/page/customer/customer.component.html) 
 
 ## Memoize
-- `src/app/pipe/geo.pipe.ts`
-- `https://github.com/mgechev/memo-decorator`
-- `npm i memo-decorator`
+- [geo.pipe.ts](src/app/pipe/geo.pipe.ts)
+- [webpage](https://github.com/mgechev/memo-decorator)
+- command: `npm i memo-decorator`
 - Implementing the decorator.
 
 ## LoadComponent
-- `src/app/app.routes.ts`
-- `src/app/page/dashboard/dashboard.component.ts`
+- [app.routes.ts](src/app/app.routes.ts)
+- [dashboard.component.ts](src/app/page/dashboard/dashboard.component.ts)
 
 ## Preloading 1
 - Explain PreloadingStrategy
 - Default: NoPreloading
 - Set: PreloadAllModules
-- `src/app/app.config.ts`
-- `withPreloading(PreloadAllModules),`
+- [app.config.ts](src/app/app.config.ts)
+```typescript
+withPreloading(PreloadAllModules),
+```
 
 ## Preloading 2
-- `src/app/app.routes.ts`
+- [app.routes.ts](src/app/app.routes.ts)
 - To preload, set: 
 ```
 data: {
@@ -46,8 +50,10 @@ data: {
 },
 ```
 - create: `src/app/service/flag-based.preloading-strategy.ts`
-- `src/app/app.config.ts`
-- `withPreloading(FlagBasedPreloadingStrategy),`
+- [app.config.ts](src/app/app.config.ts)
+```typescript
+withPreloading(FlagBasedPreloadingStrategy),
+```
 
 
 
